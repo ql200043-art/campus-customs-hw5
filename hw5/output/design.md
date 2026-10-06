@@ -1,0 +1,11 @@
+# Problem 8 — Agent Dashboard
+
+A warm ivory and forest-green operations desk uses three columns: ticket queue, selected-ticket workspace and audit timeline, then checking balance and human review. The layout collapses for smaller screens. Serif headlines soften an otherwise compact, factual interface; empty states explain what will appear without filling the desk with sample business data.
+
+The five team identities use both text and colored initial badges: Boss forest, Inventory ochre, Accounting violet, Facilities blue, Customer Service clay. Each badge names its responsibility. While an action is pending, the most recent audit role is highlighted as “latest activity,” not proof that it is still executing.
+
+Ticket states come from the backend. Running is a temporary request indicator; completion refreshes the database status and never creates a frontend-only resolution. Run briefs show the backend report, missing information, proposal rejections, draft communications and audited agent completion summaries. Events show agent, action, tool, delegation target, time and stop reason. Polling is every 2.5 seconds during actions. In-flight events are explicitly desk-wide; after completion, the view requests up to 200 events filtered by returned run ID. Earlier validation events remain honestly labeled audit history. Run briefs are session-only.
+
+Payment proposals occupy a separate Human review area. Review opens a confirmation form requiring a human name and explicit acknowledgement; rent requires a verified next due date, with no guessed default. Only the explicit submit calls the approval API. The backend enforces cash, duplicate and obligation checks. Checking balance is fetched again after execution; the UI never subtracts an assumed amount. Failed requests display useful errors, warn that old values may be stale, and never automatically retry a write.
+
+Reset is visually separated with a dashed border and red action. Its confirmation names the working copy and explains proposal invalidation and retained audit history. No reset, agent call, approval or customer/vendor contact occurs at page load. All shop data comes from the existing API; backend and MCP safety logic are unchanged. Keyboard focus indicators, native labeled controls, status/error announcements and responsive layout support everyday use.

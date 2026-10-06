@@ -1,0 +1,4 @@
+-r ../mcp_server/requirements.txt
+pydantic-ai-slim[openai]==1.107.7
+fastapi==0.142.2
+uvicorn==0.54.0

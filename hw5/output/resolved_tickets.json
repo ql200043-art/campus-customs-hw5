@@ -1,0 +1,373 @@
+{
+  "complete": true,
+  "starting_checking_balance": 3400.0,
+  "final_ending_balance": 160.0,
+  "open_tickets": 0,
+  "pending_proposals": 0,
+  "evidence_note": "Existing real audit events, read-only working database and executed review receipts. Agent summaries are historical quotes, not new runs. Final closure is separately evidenced.",
+  "tickets": [
+    {
+      "id": 101,
+      "ticket_id": 101,
+      "title": "Bulldog tee",
+      "final_status": "closed",
+      "outcome": "Operations investigation complete; physical fulfillment not completed. CC-TEE-WHITE size S remains out of stock (recorded quantity 0). Invoice 501 was paid after explicit human approval; the vendor unpaid-invoice blocker is removed. Replenishment, shipment, receipt and delivery remain unverified; no shipment or delivery promise is made. No further payment is required for this ticket. Customer communication is a draft only; nobody was contacted.",
+      "run_ids": [
+        "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+        "ab80a645-81f6-4105-afd7-4f12ec4e6485"
+      ],
+      "participating_agents": [
+        "Boss",
+        "Inventory",
+        "Accounting",
+        "Customer Service"
+      ],
+      "agent_contributions": [
+        {
+          "agent": "Accounting",
+          "run_id": "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+          "timestamp": "2026-10-05T13:33:21.370095+00:00",
+          "recorded_summary": "status=needs_human_approval; Invoice 501 is open for $840 and overdue as of the authoritative shop date 2026-08-31. Checking showed $3,400 on that date, sufficient for a proposal; prepare_payment returned proposal 47862f4eaf0d9d32bf91d7737b90f3bb98ee998534611b8dc97c04fd0e8502dc. This is only a human-review proposal: it is not approved, paid, or reserved. Vendor status also confirms the open invoic",
+          "stop_reason": "Proposal prepared only. No approval, payment, or reservation is available."
+        },
+        {
+          "agent": "Inventory",
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:34.738961+00:00",
+          "recorded_summary": "status=blocked; Ticket 101 requests 1 unit of CC-TEE-WHITE, size S. Recorded on-hand quantity is 0 at Aisle B, so the requested unit is not currently fulfillable from recorded stock. Invoice 501 is linked on the ticket and describes a rush reprint for this exact SKU/size; it is paid, and vendor 1 has no open-invoice shipping blocker. Neither the invoice nor vendor status verifies delivery or units",
+          "stop_reason": "Recorded exact-variant stock is zero; invoice and vendor status do not prove delivery or receipt, and no shipment date can be established."
+        },
+        {
+          "agent": "Customer Service",
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:41.977482+00:00",
+          "recorded_summary": "status=blocked; Draft prepared for Ticket 101. Verified the requested variant has zero on hand. The ticket links invoice 501, but no evidence here verifies its payment status; regardless, payment alone would not establish stock receipt or shipment.",
+          "stop_reason": "Draft only; no customer contact or operational changes made."
+        },
+        {
+          "agent": "Inventory",
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:52.195619+00:00",
+          "recorded_summary": "status=blocked; Ticket 101 requests 1 unit of CC-TEE-WHITE, size S. Recorded on-hand quantity is 0 at Aisle B, so the requested variant is short by 1. Vendor 1, Bulldog Print Co, has no open invoices blocking shipping; its listed lead_days is 5. The linked invoice 501 is recorded paid and describes a rush reprint of this SKU/size, but neither the invoice nor vendor status proves delivery or units ",
+          "stop_reason": "Vendor blocker and recorded source evidence have been checked; shipment, SKU suitability, and receipt are not established."
+        },
+        {
+          "agent": "Boss",
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:56.571131+00:00",
+          "recorded_summary": "status=blocked; Ticket 101 requests one Classic Bulldog Tee (CC-TEE-WHITE, size S). Recorded stock is zero, so fulfillment is blocked. Invoice 501 is recorded paid for a rush reprint, and vendor 1 has no open-invoice shipping blocker; neither fact establishes shipment or receipt. No payment proposal is appropriate. Customer communication below is a draft only; ticket remains unresolved.",
+          "stop_reason": "Recorded exact-variant stock is zero and receipt/shipment is unverified; no operational changes or ticket resolution were made."
+        }
+      ],
+      "delegations": [
+        {
+          "run_id": "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+          "timestamp": "2026-10-05T13:33:07.662612+00:00",
+          "from": "Boss",
+          "to": "Inventory"
+        },
+        {
+          "run_id": "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+          "timestamp": "2026-10-05T13:33:14.155601+00:00",
+          "from": "Inventory",
+          "to": "Accounting"
+        },
+        {
+          "run_id": "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+          "timestamp": "2026-10-05T13:33:26.762652+00:00",
+          "from": "Boss",
+          "to": "Customer Service"
+        },
+        {
+          "run_id": "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+          "timestamp": "2026-10-05T13:33:30.206522+00:00",
+          "from": "Customer Service",
+          "to": "Inventory"
+        },
+        {
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:26.081889+00:00",
+          "from": "Boss",
+          "to": "Inventory"
+        },
+        {
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:34.742008+00:00",
+          "from": "Boss",
+          "to": "Customer Service"
+        },
+        {
+          "run_id": "ab80a645-81f6-4105-afd7-4f12ec4e6485",
+          "timestamp": "2026-10-05T13:54:44.043979+00:00",
+          "from": "Boss",
+          "to": "Inventory"
+        }
+      ],
+      "mcp_tools": [
+        "get_shop_context",
+        "get_ticket",
+        "lookup_inventory",
+        "get_invoice",
+        "list_vendors",
+        "get_vendor_status",
+        "list_cash_accounts",
+        "list_payments",
+        "prepare_payment",
+        "lookup_pricing"
+      ],
+      "human_approvals": [
+        {
+          "id": "a1af63ed-97a4-4b01-b8ca-30e63d20318e",
+          "generation": "c7539bc9-3e4b-4ed4-ac8d-6ba75aa45471",
+          "fingerprint": "47862f4eaf0d9d32bf91d7737b90f3bb98ee998534611b8dc97c04fd0e8502dc",
+          "ticket_id": 101,
+          "run_id": "d1fb922a-da86-4df9-a211-9f55ad0a0ee3",
+          "snapshot": {
+            "account": "checking",
+            "amount": "840.0",
+            "balance_if_paid": "2560.0",
+            "balance_observed": "3400.0",
+            "due_date": "2026-08-28",
+            "kind": "invoice",
+            "payee": "Bulldog Print Co",
+            "ref_id": 501,
+            "shop_date": "2026-08-31"
+          },
+          "status": "executed",
+          "created_at": "2026-10-05T13:35:06.931532+00:00",
+          "executed_at": "2026-10-05T13:48:37.285635+00:00",
+          "reviewer": "Liang Qiao",
+          "payment_id": 1
+        }
+      ],
+      "payments": [
+        {
+          "id": 1,
+          "kind": "invoice",
+          "ref_id": 501,
+          "amount": 840.0,
+          "account": "checking",
+          "paid_at": "2026-08-31",
+          "approved_by": "Liang Qiao"
+        }
+      ],
+      "cash_change": -840,
+      "balance_after_ticket": 2560,
+      "completion_mechanism": "POST /api/tickets/101/complete-operations → control_complete_ticket101_operations; verified the completed post-payment investigation and receipt, then changed only ticket status/notes.",
+      "expected_comparison": "Inventory first and Accounting payment assessment matched the plan. The final post-payment path was Boss → Inventory, Boss → Customer Service, Boss → Inventory. Completed reports still blocked physical fulfillment; the later evidence-checked operations closure deliberately did not claim receipt or delivery.",
+      "final_database_notes": "Needs a tee in size S.\n\n[Operations completion; run ab80a645-81f6-4105-afd7-4f12ec4e6485]\nOperations investigation complete; physical fulfillment not completed. CC-TEE-WHITE size S remains out of stock (recorded quantity 0). Invoice 501 was paid after explicit human approval; the vendor unpaid-invoice blocker is removed. Replenishment, shipment, receipt and delivery remain unverified; no shipment or delivery promise is made. No further payment is required for this ticket. Customer communication is a draft only; nobody was contacted.\nDraft only — Your requested size S Bulldog tee is currently out of stock. We cannot confirm replenishment, shipment or delivery timing. No fulfillment promise is made.",
+      "customer_draft": "Draft only — Your requested size S Bulldog tee is currently out of stock. We cannot confirm replenishment, shipment or delivery timing. No fulfillment promise is made.",
+      "completion_evidence": {
+        "ok": true,
+        "ticket_id": 101,
+        "status": "closed",
+        "changed": true,
+        "outcome": "Operations investigation complete; physical fulfillment not completed. CC-TEE-WHITE size S remains out of stock (recorded quantity 0). Invoice 501 was paid after explicit human approval; the vendor unpaid-invoice blocker is removed. Replenishment, shipment, receipt and delivery remain unverified; no shipment or delivery promise is made. No further payment is required for this ticket. Customer communication is a draft only; nobody was contacted.",
+        "customer_draft": "Draft only — Your requested size S Bulldog tee is currently out of stock. We cannot confirm replenishment, shipment or delivery timing. No fulfillment promise is made.",
+        "notes": "Needs a tee in size S.\n\n[Operations completion; run ab80a645-81f6-4105-afd7-4f12ec4e6485]\nOperations investigation complete; physical fulfillment not completed. CC-TEE-WHITE size S remains out of stock (recorded quantity 0). Invoice 501 was paid after explicit human approval; the vendor unpaid-invoice blocker is removed. Replenishment, shipment, receipt and delivery remain unverified; no shipment or delivery promise is made. No further payment is required for this ticket. Customer communication is a draft only; nobody was contacted.\nDraft only — Your requested size S Bulldog tee is currently out of stock. We cannot confirm replenishment, shipment or delivery timing. No fulfillment promise is made.",
+        "physical_fulfillment_completed": false
+      }
+    },
+    {
+      "id": 102,
+      "ticket_id": 102,
+      "title": "Rent due",
+      "final_status": "closed",
+      "outcome": "Rent of 2400.00 for lease 1, Chapel Street shop, payable to Elm City Properties and due 2026-09-02, was explicitly approved by Anthony Qiao and executed by the backend as payment 2. Checking decreased from 2560.00 to 160.00. The lease was updated and Ticket 102 closed. No landlord contact occurred.",
+      "run_ids": [
+        "72b5a159-02bc-4fa0-bdc1-8b5094dfea8e",
+        "cfe6359d-ea13-403a-aeb4-ab0962be91a1"
+      ],
+      "participating_agents": [
+        "Boss",
+        "Facilities",
+        "Accounting"
+      ],
+      "agent_contributions": [
+        {
+          "agent": "Facilities",
+          "run_id": "72b5a159-02bc-4fa0-bdc1-8b5094dfea8e",
+          "timestamp": "2026-10-05T23:39:54.218379+00:00",
+          "recorded_summary": "status=recommendation; Ticket 102 refers to lease 1 for the Chapel Street shop, landlord Elm City Properties. Monthly rent is $2,400 and next_due is 2026-09-02. Against shop date 2026-08-31, rent is not yet due; the ticket note saying due in 2 days matches the lease date. The lease records no further notice-timing terms, so it supports the stated due date but not any additional notice requirement ",
+          "stop_reason": "Requested verification is complete; no action taken."
+        },
+        {
+          "agent": "Accounting",
+          "run_id": "72b5a159-02bc-4fa0-bdc1-8b5094dfea8e",
+          "timestamp": "2026-10-05T23:40:02.482405+00:00",
+          "recorded_summary": "status=recommendation; Rent for lease 1 is recorded as $2,400 due 2026-09-02. The checking balance recorded 2026-08-31 is $2,560, so the recorded balance exceeds the rent by $160. No rent payment for lease 1 appears in this ledger. No payment was prepared or made.",
+          "stop_reason": "Assessment only; ledger absence cannot rule out external payment. No proposal or payment was made."
+        },
+        {
+          "agent": "Boss",
+          "run_id": "72b5a159-02bc-4fa0-bdc1-8b5094dfea8e",
+          "timestamp": "2026-10-05T23:40:08.407293+00:00",
+          "recorded_summary": "status=needs_human_approval; Ticket 102 is an open rent notice for lease 1. The lease supports $2,400 due 2026-09-02, matching the ticket note against the authoritative shop date 2026-08-31. The ledger lists checking at $2,560 and no rent payment for lease 1. This is not proof that rent remains unpaid: verify no external payment before any payment preparation. No payment proposal was created, and ",
+          "stop_reason": "Do not prepare a payment based solely on ledger absence; external settlement status is unknown, and payment requires human review."
+        },
+        {
+          "agent": "Boss",
+          "run_id": "cfe6359d-ea13-403a-aeb4-ab0962be91a1",
+          "timestamp": "2026-10-05T23:43:37.550362+00:00",
+          "recorded_summary": "status=needs_human_approval; Ticket 102 concerns lease 1 rent of $2,400 due 2026-09-02. The recorded rent obligation has no matching payment in the rent payment records, and checking has $2,560. A rent payment proposal was prepared for explicit human review; it is not approved, reserved, or executed. No customer/vendor communication was sent and the ticket is not resolved.",
+          "stop_reason": "Payment execution is disabled; proposal only. No approval or ticket resolution was performed."
+        }
+      ],
+      "delegations": [
+        {
+          "run_id": "72b5a159-02bc-4fa0-bdc1-8b5094dfea8e",
+          "timestamp": "2026-10-05T23:39:49.532352+00:00",
+          "from": "Boss",
+          "to": "Facilities"
+        },
+        {
+          "run_id": "72b5a159-02bc-4fa0-bdc1-8b5094dfea8e",
+          "timestamp": "2026-10-05T23:39:57.508379+00:00",
+          "from": "Boss",
+          "to": "Accounting"
+        }
+      ],
+      "mcp_tools": [
+        "get_shop_context",
+        "get_ticket",
+        "lookup_lease",
+        "list_cash_accounts",
+        "list_payments",
+        "prepare_payment"
+      ],
+      "human_approvals": [
+        {
+          "id": "2b9b4c3b-ab18-4b1a-9048-3effd0c0caa7",
+          "generation": "c7539bc9-3e4b-4ed4-ac8d-6ba75aa45471",
+          "fingerprint": "7096143ec9f5a3f0f0c6e1d2bc3853bdae610b76b57e33910aac7661eb328a1c",
+          "ticket_id": 102,
+          "run_id": "cfe6359d-ea13-403a-aeb4-ab0962be91a1",
+          "snapshot": {
+            "account": "checking",
+            "amount": "2400.0",
+            "balance_if_paid": "160.0",
+            "balance_observed": "2560.0",
+            "due_date": "2026-09-02",
+            "kind": "rent",
+            "payee": "Elm City Properties",
+            "ref_id": 1,
+            "shop_date": "2026-08-31"
+          },
+          "status": "executed",
+          "created_at": "2026-10-05T23:43:38.092144+00:00",
+          "executed_at": "2026-10-05T23:50:14.877350+00:00",
+          "reviewer": "Anthony Qiao",
+          "payment_id": 2
+        }
+      ],
+      "payments": [
+        {
+          "id": 2,
+          "kind": "rent",
+          "ref_id": 1,
+          "amount": 2400.0,
+          "account": "checking",
+          "paid_at": "2026-08-31",
+          "approved_by": "Anthony Qiao"
+        }
+      ],
+      "cash_change": -2400,
+      "balance_after_ticket": 160,
+      "completion_mechanism": "POST /api/approvals/{proposal_id} → control_execute_payment; explicit human approval, transactional cash debit, payment insertion, lease update and rent-ticket closure.",
+      "expected_comparison": "Facilities was first as planned. Boss delegated separately to Facilities and Accounting, rather than Facilities delegating to Accounting. After clarification that the modeled ledger is authoritative, Boss prepared the proposal directly. Human approval and transactional execution completed the ticket.",
+      "final_database_notes": "Email: shop rent due in 2 days."
+    },
+    {
+      "id": 103,
+      "ticket_id": 103,
+      "title": "Bulk hoodie discount",
+      "final_status": "closed",
+      "outcome": "Request declined as stated: 20 units of CC-HOOD-NAVY, size M; recorded stock 8, shortfall 12. No supported bulk-discount authorization was established. No discount applied and no stock reserved or replenished. Exact-variant replenishment and delivery are unverified; no shipment promise. No payment required or executed. Customer response is a draft only; nobody contacted. Operations investigation complete; the requested order was not accepted or fulfilled.",
+      "run_ids": [
+        "7dea3f7b-153c-4026-9dca-4e545b8f738d"
+      ],
+      "participating_agents": [
+        "Boss",
+        "Inventory",
+        "Accounting",
+        "Customer Service"
+      ],
+      "agent_contributions": [
+        {
+          "agent": "Inventory",
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:10.305073+00:00",
+          "recorded_summary": "status=recommendation; Ticket 103 requests 20 units of CC-HOOD-NAVY, size M. Recorded stock is 8 at Aisle A, a shortfall of 12 against the request. Vendor status shows no open-invoice shipping blocker for Bulldog Print Co, but that does not establish the vendor can supply this SKU, nor that anything has shipped or been received.",
+          "stop_reason": "Exact-variant availability and vendor invoice status were checked; supplier capability and replenishment facts are not established."
+        },
+        {
+          "agent": "Accounting",
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:18.062415+00:00",
+          "recorded_summary": "status=recommendation; Pricing evidence for CC-HOOD-NAVY records unit cost $22 and list price $58. Arithmetic at list price: gross margin is $36 per unit (62.1% of selling price); for 20 units, revenue would be $1,160, cost $440, and gross margin $720, assuming all units sold at list price and cost applies to the requested units. These are calculations, not an authorized discount. No discount poli",
+          "stop_reason": "Pricing and arithmetic were verified; discount authority and any all-in cost basis are not established."
+        },
+        {
+          "agent": "Customer Service",
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:22.736235+00:00",
+          "recorded_summary": "status=recommendation; The request as stated cannot be accepted: recorded stock is 8 of the 20 requested size-M hoodies, and no discount authority is evidenced. No future fulfillment or discount is promised.",
+          "stop_reason": "Verified exact-variant stock is insufficient and no discount authority is evidenced; this is a decline of the request as stated, not a promise about a future offer."
+        },
+        {
+          "agent": "Boss",
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:26.401809+00:00",
+          "recorded_summary": "status=recommendation; Recommend declining Ticket 103 as stated: the exact requested variant has recorded stock of 8 against 20 requested, and no discount authority is evidenced. This is a recommendation only; it does not claim the ticket was closed or otherwise resolved. No payment is involved.",
+          "stop_reason": "The exact-variant stock shortfall and lack of evidenced discount authority support declining the request as stated."
+        }
+      ],
+      "delegations": [
+        {
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:02.990728+00:00",
+          "from": "Boss",
+          "to": "Inventory"
+        },
+        {
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:12.204281+00:00",
+          "from": "Boss",
+          "to": "Accounting"
+        },
+        {
+          "run_id": "7dea3f7b-153c-4026-9dca-4e545b8f738d",
+          "timestamp": "2026-10-06T00:09:19.635350+00:00",
+          "from": "Boss",
+          "to": "Customer Service"
+        }
+      ],
+      "mcp_tools": [
+        "get_shop_context",
+        "get_ticket",
+        "lookup_inventory",
+        "list_vendors",
+        "get_vendor_status",
+        "lookup_pricing"
+      ],
+      "human_approvals": [],
+      "payments": [],
+      "cash_change": 0,
+      "balance_after_ticket": 160,
+      "completion_mechanism": "POST /api/tickets/103/run → control_complete_ticket103_operations after the completed reports; evidence-checked decline changed only ticket status/notes.",
+      "expected_comparison": "The final run began with Inventory rather than the planned Customer Service. Boss then delegated to Accounting and Customer Service. Instead of indefinitely deferring a quote, the team completed a supported decline of the request as stated; no discount or fulfillment was invented.",
+      "final_database_notes": "Student org wants 20 hoodies, size M, asking for a bulk discount.\n\n[Operations decline; run 7dea3f7b-153c-4026-9dca-4e545b8f738d]\nRequest declined as stated: 20 units of CC-HOOD-NAVY, size M; recorded stock 8, shortfall 12. No supported bulk-discount authorization was established. No discount applied and no stock reserved or replenished. Exact-variant replenishment and delivery are unverified; no shipment promise. No payment required or executed. Customer response is a draft only; nobody contacted. Operations investigation complete; the requested order was not accepted or fulfilled.\nBoss disposition: Recommend declining Ticket 103 as stated: the exact requested variant has recorded stock of 8 against 20 requested, and no discount authority is evidenced. This is a recommendation only; it does not claim the ticket was closed or otherwise resolved. No payment is involved.\nCustomer Service draft only: Hello Yale AI Club,\n\nThank you for reaching out about ordering 20 CC-HOOD-NAVY hoodies in size M with a bulk discount. We’re unable to accept the request as stated: our records show 8 in that size currently available, and we don’t have authorization for a bulk discount. We’re sorry we can’t accommodate this order as requested.\n\nBest,\nCustomer Service",
+      "customer_draft": "Hello Yale AI Club,\n\nThank you for reaching out about ordering 20 CC-HOOD-NAVY hoodies in size M with a bulk discount. We’re unable to accept the request as stated: our records show 8 in that size currently available, and we don’t have authorization for a bulk discount. We’re sorry we can’t accommodate this order as requested.\n\nBest,\nCustomer Service",
+      "completion_evidence": {
+        "ok": true,
+        "changed": true,
+        "ticket_id": 103,
+        "status": "closed",
+        "outcome": "Request declined as stated: 20 units of CC-HOOD-NAVY, size M; recorded stock 8, shortfall 12. No supported bulk-discount authorization was established. No discount applied and no stock reserved or replenished. Exact-variant replenishment and delivery are unverified; no shipment promise. No payment required or executed. Customer response is a draft only; nobody contacted. Operations investigation complete; the requested order was not accepted or fulfilled.",
+        "customer_draft": "Hello Yale AI Club,\n\nThank you for reaching out about ordering 20 CC-HOOD-NAVY hoodies in size M with a bulk discount. We’re unable to accept the request as stated: our records show 8 in that size currently available, and we don’t have authorization for a bulk discount. We’re sorry we can’t accommodate this order as requested.\n\nBest,\nCustomer Service",
+        "notes": "Student org wants 20 hoodies, size M, asking for a bulk discount.\n\n[Operations decline; run 7dea3f7b-153c-4026-9dca-4e545b8f738d]\nRequest declined as stated: 20 units of CC-HOOD-NAVY, size M; recorded stock 8, shortfall 12. No supported bulk-discount authorization was established. No discount applied and no stock reserved or replenished. Exact-variant replenishment and delivery are unverified; no shipment promise. No payment required or executed. Customer response is a draft only; nobody contacted. Operations investigation complete; the requested order was not accepted or fulfilled.\nBoss disposition: Recommend declining Ticket 103 as stated: the exact requested variant has recorded stock of 8 against 20 requested, and no discount authority is evidenced. This is a recommendation only; it does not claim the ticket was closed or otherwise resolved. No payment is involved.\nCustomer Service draft only: Hello Yale AI Club,\n\nThank you for reaching out about ordering 20 CC-HOOD-NAVY hoodies in size M with a bulk discount. We’re unable to accept the request as stated: our records show 8 in that size currently available, and we don’t have authorization for a bulk discount. We’re sorry we can’t accommodate this order as requested.\n\nBest,\nCustomer Service",
+        "physical_fulfillment_completed": false
+      }
+    }
+  ]
+}

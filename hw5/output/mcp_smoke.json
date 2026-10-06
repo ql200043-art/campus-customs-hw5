@@ -1,0 +1,237 @@
+{
+  "connection": "Codex app-server -> configured stdio MCP server",
+  "configuration": ".codex/config.toml",
+  "activation": "Project-local config loaded as explicit CLI overrides; native auto-loading awaits project trust.",
+  "discovery": {
+    "name": "campus_customs",
+    "runtimeStatus": "connected",
+    "pluginId": null,
+    "serverInfo": {
+      "name": "Campus Customs",
+      "title": null,
+      "version": "3.4.8",
+      "description": null,
+      "icons": null,
+      "websiteUrl": null
+    },
+    "serverCapabilities": {
+      "experimental": {},
+      "extensions": {
+        "io.modelcontextprotocol/ui": {}
+      },
+      "logging": {},
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "tools": {
+      "lookup_pricing": {
+        "name": "lookup_pricing",
+        "description": "Return stored unit_cost and list_price for an exact SKU.\n\nSupports ticket 103's hoodie discount investigation. Pricing is per SKU,\nnot per size; this lookup does not invent or approve a discount.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "sku": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sku"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      "lookup_inventory": {
+        "name": "lookup_inventory",
+        "description": "Return inventory for an exact SKU and size, including on-hand qty and location.\n\nHelps investigate ticket 101's requested tee variant. Zero stock is a found\nrecord, not a missing record. Does not reserve stock or promise fulfillment.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "sku": {
+              "type": "string"
+            },
+            "size": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sku",
+            "size"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      },
+      "lookup_lease": {
+        "name": "lookup_lease",
+        "description": "Return a lease by its id, including landlord, monthly_rent and next_due.\n\nUse tickets.lease_id for ticket 102. Dates are returned as stored; later\nagents must use desk.date_today, not the computer date, to assess urgency.",
+        "inputSchema": {
+          "additionalProperties": false,
+          "properties": {
+            "lease_id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "lease_id"
+          ],
+          "type": "object"
+        },
+        "outputSchema": {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        }
+      }
+    },
+    "toolsError": null,
+    "resources": [],
+    "resourceTemplates": [],
+    "authStatus": "unsupported"
+  },
+  "tests": [
+    {
+      "prompt": "Check the inventory for SKU CC-TEE-WHITE in size S.",
+      "tool": "lookup_inventory",
+      "arguments": {
+        "sku": "CC-TEE-WHITE",
+        "size": "S"
+      },
+      "mcp_output": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"found\":true,\"record\":{\"sku\":\"CC-TEE-WHITE\",\"name\":\"Classic Bulldog Tee\",\"size\":\"S\",\"qty\":0,\"location\":\"Aisle B\"}}"
+          }
+        ],
+        "structuredContent": {
+          "found": true,
+          "record": {
+            "sku": "CC-TEE-WHITE",
+            "name": "Classic Bulldog Tee",
+            "size": "S",
+            "qty": 0,
+            "location": "Aisle B"
+          }
+        },
+        "isError": false
+      },
+      "matches_working_database": true
+    },
+    {
+      "prompt": "Look up lease 1.",
+      "tool": "lookup_lease",
+      "arguments": {
+        "lease_id": 1
+      },
+      "mcp_output": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"found\":true,\"record\":{\"id\":1,\"space_name\":\"Chapel Street shop\",\"landlord\":\"Elm City Properties\",\"monthly_rent\":2400.0,\"next_due\":\"2026-09-02\",\"notes\":null}}"
+          }
+        ],
+        "structuredContent": {
+          "found": true,
+          "record": {
+            "id": 1,
+            "space_name": "Chapel Street shop",
+            "landlord": "Elm City Properties",
+            "monthly_rent": 2400.0,
+            "next_due": "2026-09-02",
+            "notes": null
+          }
+        },
+        "isError": false
+      },
+      "matches_working_database": true
+    },
+    {
+      "prompt": "Look up the pricing for SKU CC-HOOD-NAVY.",
+      "tool": "lookup_pricing",
+      "arguments": {
+        "sku": "CC-HOOD-NAVY"
+      },
+      "mcp_output": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"found\":true,\"record\":{\"sku\":\"CC-HOOD-NAVY\",\"unit_cost\":22.0,\"list_price\":58.0}}"
+          }
+        ],
+        "structuredContent": {
+          "found": true,
+          "record": {
+            "sku": "CC-HOOD-NAVY",
+            "unit_cost": 22.0,
+            "list_price": 58.0
+          }
+        },
+        "isError": false
+      },
+      "matches_working_database": true
+    }
+  ],
+  "sha256_before": {
+    "campus_customs.db": "23686a90d698f7fa6f901a3f0a9774db9cbb31e13151c9e5717275f3321f360a",
+    "campus_customs_new.db": "23686a90d698f7fa6f901a3f0a9774db9cbb31e13151c9e5717275f3321f360a"
+  },
+  "sha256_after": {
+    "campus_customs.db": "23686a90d698f7fa6f901a3f0a9774db9cbb31e13151c9e5717275f3321f360a",
+    "campus_customs_new.db": "23686a90d698f7fa6f901a3f0a9774db9cbb31e13151c9e5717275f3321f360a"
+  },
+  "validation": {
+    "all_outputs_match_working_database": true,
+    "both_databases_unchanged": true,
+    "independent_sqlite_checks_performed_after_all_mcp_calls": true,
+    "expected_values_discrepancies": [],
+    "problem_5_started": false
+  },
+  "test_method": "The vibe coder translated the three supplied natural-language requests into MCP arguments; Codex app-server mcpServer/tool/call forwarded each over stdio to FastMCP. No LLM turn or direct Python tool-function call was used."
+}
